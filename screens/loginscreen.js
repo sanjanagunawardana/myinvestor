@@ -11,7 +11,7 @@ export default class loginscreen extends React.Component {
     }
 }
 
-const styles = Stylesheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
