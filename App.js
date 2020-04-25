@@ -29,7 +29,7 @@ const AuthStack = createStackNavigator({
 });
 
 export default createAppContainer(
-  createSwitchNagivator(
+  createSwitchNavigator(
     {
       Loading: loadingscreen,
       App: AppStack,
