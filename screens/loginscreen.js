@@ -3,8 +3,8 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, 
 import * as firebase from 'firebase'
 
 export default class loginscreen extends React.Component {
-    static navigationOptions ={
-        header: null
+    static navigationOptions = {
+        headerShown: false
     };
 
     state = {
@@ -20,17 +20,17 @@ export default class loginscreen extends React.Component {
     };
 
     render() {
+        LayoutAnimation.easeInEaseOut();
+
         return (
             <View style={styles.container}>
                 <StatusBar barStyle="light-content"> </StatusBar>
                 <Image 
                     source={require("../assets/authHeader.png")}
-                    style ={{marginTop: -1, marginLeft: -1}}
-                ></Image>
+                    style ={{marginTop: -1, marginLeft: -1, position: "absolute", top: 0, left: 0, width: '100%', height: 270}}
+                ></Image> 
 
-                <Text style={styles.greeting}>
-                    {'Hello again.\nWelcome back.'}
-                </Text>
+                
 
                 <View style={styles.errorMessage}>
                     {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
@@ -66,15 +66,16 @@ export default class loginscreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        
+        backgroundColor: "#FBF9F5"
     },
     greeting: {
-        marginTop: 32,
+        
         fontSize: 18,
         fontWeight: "400",
         textAlign: "center"
     },
     errorMessage: {
+        marginTop: 260,
         height: 72,
         alignItems: "center",
         justifyContent: "center",
