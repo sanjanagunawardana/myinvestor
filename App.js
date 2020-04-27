@@ -1,8 +1,8 @@
 import React from 'react'
 import {createAppContainer, createSwitchNavigator} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
-import {createBottomTabNavigator} from 'react-navigation-tabs'
-import {Ionicons} from "@expo/vector-icons"
+import {createBottomTabNavigator} from 'react-navigation-tabs' 
+import {Ionicons} from '@expo/vector-icons'
 import loadingscreen from './screens/loadingscreen'
 import loginscreen from './screens/loginscreen'
 import registerscreen from './screens/registerscreen'
@@ -29,57 +29,80 @@ if(!firebase.apps.length){
 firebase.initializeApp(firebaseConfig);
 }
 
-const AppTabNavigator = createBottomTabNavigator(
+const AppContainer = createStackNavigator(
   {
-    Home: {
-      screen: homescreen,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Ionicons name="ios-home" size={30} color={tintColor}/>
+    default: createBottomTabNavigator(
+      {
+        Home: {
+          screen: homescreen,
+          navigationOptions: {
+            tabBarIcon: ({ tintColor }) => <Ionicons name="ios-home" size={30} color={tintColor}/>
+          }
+        },
+        Message: {
+          screen: messagescreen,
+          navigationOptions: {
+            tabBarIcon: ({ tintColor }) => <Ionicons name="ios-chatboxes" size={30} color={tintColor} />
+          }
+        },
+        Post: {
+          screen: postscreen,
+          navigationOptions: {
+            tabBarIcon: ({ tintColor }) => 
+            <Ionicons 
+            name="ios-add-circle" 
+            size={50} 
+            color="#E9446A" 
+            style={{
+              shadowColor: "#E9446A",
+              shadowOffset: { width: 0, height: 0},
+              shadowRadius: 10,
+              shadowOpacity: 0.3
+            }}/>
+          } 
+        },
+        Notification: {
+          screen: notificationscreen,
+          navigationOptions: {
+            tabBarIcon: ({ tintColor }) => <Ionicons name="ios-notifications" size={30} color={tintColor}/>
+          }
+        },
+        Profile: {
+          screen: profilescreen,
+          navigationOptions: {
+            tabBarIcon: ({ tintColor }) => <Ionicons name="ios-person" size={30} color={tintColor}/>
+          }
+        }
+      },
+      {
+        defaultNavigationOptions:{
+          tabBarOnPress: ({navigation, defaultHandler}) => {
+            if (navigation.state.key === "Post"){
+              navigation.navigate("postModal")
+            } else {
+                defaultHandler()
+            }
+          }
+        },
+        tabBarOptions: {
+          activeTintColor: "black",
+          inactiveTintColor: "#B8BBC4",
+          showLabel: false
+        }
       }
-    },
-    Message: {
-      screen: messagescreen,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Ionicons name="ios-chatboxes" size={30} color={tintColor} />
-      }
-    },
-    Post: {
-      screen: postscreen,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => 
-        <Ionicons 
-        name="ios-add-circle" 
-        size={40} 
-        color="#E9446A" 
-        style={{
-          shadowColor: "#E9446A",
-          shadowOffset: { width: 0, height: 0},
-          shadowRadius: 10,
-          shadowOpacity: 0.3
-        }}/>
-      } 
-    },
-    Notification: {
-      screen: notificationscreen,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Ionicons name="ios-notifications" size={30} color={tintColor}/>
-      }
-    },
-    Profile: {
-      screen: profilescreen,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Ionicons name="ios-person" size={30} color={tintColor}/>
-      }
+    ),
+    postModal: {
+      screen: postscreen
     }
   },
   {
-    tabBarOptions: {
-      activeTintColor: "lightblue",
-      inactiveTintColor: "#B8BBC4",
-      showLabel: false
-    }
+    node: "modal",
+    headerMode: "none",
+    initialRouteName: "postModal"
   }
-);
+)
+
+
 
 const AuthStack = createStackNavigator({
   
@@ -91,7 +114,7 @@ export default createAppContainer(
   createSwitchNavigator(
     {
       Loading: loadingscreen,
-      App: AppTabNavigator,
+      App: AppContainer,
       Auth: AuthStack
     },
     {
