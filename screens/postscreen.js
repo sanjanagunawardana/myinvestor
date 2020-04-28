@@ -41,7 +41,7 @@ export default class postscreen extends React.Component {
     };
 
     pickImage = async () => {
-        let result = await ImagePickerIOS.launchImageLibraryAsync({
+        let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: true,
             aspect: [4, 3]
