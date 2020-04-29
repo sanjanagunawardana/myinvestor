@@ -13,7 +13,7 @@ export default class postscreen extends React.Component {
     state = {
         text: "",
         image: null
-    }
+    };
 
     componentDidMount() {
         this.getPhotoPermission();
@@ -30,7 +30,8 @@ export default class postscreen extends React.Component {
     };
 
     handlePost = () => {
-        Fire.shared.addPost({ text: this.state.text.trim(), localUri: this.state.image})
+        Fire.shared
+        .addPost({ text: this.state.text.trim(), localUri: this.state.image})
         .then(ref => {
             this.setState({ text: "", image: null });
             this.props.navigation.goBack();
@@ -50,7 +51,7 @@ export default class postscreen extends React.Component {
         if (!result.cancelled) {
             this.setState({image: result.uri});
         }
-
+ 
     };
 
     render() {
@@ -83,8 +84,8 @@ export default class postscreen extends React.Component {
                     <Ionicons name="md-camera" size={32} color="#D8D9DB"></Ionicons>   
                </TouchableOpacity>
 
-               <View styles= {{marginHorizontal: 32, marginTop: 32, height: 158 }}>
-                <Image source={{uri: this.state.image}} styles={{width: "100%", height: "100%"}}></Image>
+               <View style= {{marginHorizontal: 32, marginTop: 32, height: 158 }}>
+               <Image source={{ uri: this.state.image }} style={{width: "100%", height: "100%"}}></Image>
                </View>
 
             </SafeAreaView>

@@ -21,10 +21,13 @@ class Fire {
     addPost = async ({text, localUri}) => {
         const remoteUri = await this.uploadPhotoAsync(localUri);
 
-        return new Promise((res, rej) =>{
-            this.firestore.collection("posts").add({
+        return new Promise((res, rej) => {
+            this.firestore
+            .collection("posts")
+            .add({
                 text,
-                uid: this.timestamp,
+                uid: this.uid,
+                timestamp: this.timestamp,
                 image: remoteUri
             })
             .then(ref => {
@@ -37,7 +40,7 @@ class Fire {
     };
 
     uploadPhotoAsync = async uri => {
-        const path = 'photos/${this.uid}/${Date.now()}.jpg';
+        const path = 'photos/${this.uid}/${Date.now()}2.jpg';
         
         return new Promise(async (res, rej) => {
             const response = await fetch(uri);

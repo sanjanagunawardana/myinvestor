@@ -98,7 +98,7 @@ const AppContainer = createStackNavigator(
   {
     node: "modal",
     headerMode: "none",
-    initialRouteName: "postModal"
+    
   }
 )
 
