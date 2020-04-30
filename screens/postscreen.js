@@ -95,13 +95,14 @@ export default class postscreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        paddingVertical: 12
     },
     header: {
         flexDirection: "row",
         justifyContent: "space-between",
-        paddingHorizontal: 32,
-        paddingVertical: 12,
+        paddingHorizontal: 30,
+        paddingVertical: 10,
         borderBottomWidth:1,
         borderBottomColor: "#D8D9DB"
     },
