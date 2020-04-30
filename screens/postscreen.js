@@ -74,7 +74,7 @@ export default class postscreen extends React.Component {
                     multiline={true} 
                     numberOfLines={4} 
                     style={{flex: 1}}
-                    placeholder="What idea do you have in mind?"
+                    placeholder="What idea do you have in mind ?"
                     onChangeText={text => this.setState({text})}
                     value={this.state.text}
                 ></TextInput>    
