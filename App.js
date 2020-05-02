@@ -2,6 +2,8 @@ import React from 'react'
 import {createAppContainer, createSwitchNavigator} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import {createBottomTabNavigator} from 'react-navigation-tabs' 
+import {createDrawerNavigator} from 'react-navigation-drawer'
+
 import {Ionicons} from '@expo/vector-icons'
 import loadingscreen from './screens/loadingscreen'
 import loginscreen from './screens/loginscreen'
@@ -13,6 +15,8 @@ import notificationscreen from './screens/notificationscreen'
 import messagescreen from './screens/messagescreen'
 import profilescreen from './screens/profilescreen'
 import chatscreen from './screens/chatscreen'
+import reminderscreen from './screens/reminderscreen'
+import actscreen from './screens/actscreen'
 
 import * as firebase from 'firebase'
 
@@ -104,6 +108,11 @@ const AppContainer = createStackNavigator(
   }
 )
 
+const DrawerNavigator = createDrawerNavigator({
+  reminderscreen,
+  actscreen
+})
+
 
 
 const AuthStack = createStackNavigator({
@@ -126,3 +135,4 @@ export default createAppContainer(
     }
   )
 );
+

@@ -1,14 +1,11 @@
 import React from "react"
-import {Platform, KeyboardAvoidingView, SafeAreaView} from 'react-native'
+import {Platform, KeyboardAvoidingView, SafeAreaView, View} from 'react-native'
 import {GiftedChat} from 'react-native-gifted-chat'
 import Fire from '../Fire';
 
 
 export default class chatscreen extends React.Component {
-    static navigationOptions = {
-        headerShown: false
-    };
-
+    
     state = {
         messages: []
     }
@@ -21,7 +18,7 @@ export default class chatscreen extends React.Component {
     }
 
     componentDidMount(){
-        Fire.get(message =>
+        Fire.shared.get(message =>
             this.setState(previous => ({
                 messages: GiftedChat.append(previous.messages, message)
             }))
@@ -29,13 +26,14 @@ export default class chatscreen extends React.Component {
     }
 
     componentWillUnmount() {
-        Fire.off();
+        Fire.shared.off();
     }
 
     render() {
+        
         const chat = <GiftedChat messages={this.state.messages} onSend={Fire.send} user={this.user} />;
 
-        if (Platform.OS === "android") {
+        if (Platform.OS === 'android') {
             return(
                 <KeyboardAvoidingView style = {{flex: 1}} behavior="padding" keyboardVerticalOffset={30} enabled>
 
@@ -45,7 +43,7 @@ export default class chatscreen extends React.Component {
             );
         }
 
-    return <SafeAreaView style={{flex: 1}}>{chat}</SafeAreaView>;
+        return <SafeAreaView style={{flex: 1}}>{chat}</SafeAreaView>;
         
     }
 }

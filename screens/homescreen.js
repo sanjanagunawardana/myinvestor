@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Image} from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import moment from 'moment'
+import { SafeAreaView } from 'react-navigation';
 
 //temp
 var posts = [
@@ -59,9 +61,12 @@ export default class homescreen extends React.Component {
                     <Image source={post.image} style={styles.postImage} resizeMode="cover" />
 
                     <View style={{flexDirection:"row"}}>
-                        <Ionicons name="ios-heart-empty" size={24} color="#73788B" style={{marginRight:16}} />
-                        <Ionicons name="ios-chatboxes" size={24} color="#73788B" style={{marginRight:16}} />
-                        <Ionicons name="ios-share" size={24} color="#73788B" style={{marginRight:16}} />
+                        <Ionicons name="ios-heart-empty" size={24} color="#73788B" style={{marginRight:5}} />
+                        <Text>like</Text>
+                        <Ionicons name="ios-chatboxes" size={24} color="#73788B" style={{marginRight:5, marginLeft:36}} />
+                        <Text>comment</Text>
+                        <Ionicons name="ios-share" size={24} color="#73788B" style={{marginRight:5, marginLeft:36}} />
+                        <Text>share</Text>
                     </View>
 
                 </View>
@@ -72,10 +77,14 @@ export default class homescreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <SafeAreaView>
                 <View style={styles.header}> 
-                    <Text style={styles.headerTitle}>Feed</Text>
+                    <TouchableOpacity onPress = {this.props.navigation.openDrawer}>
+                    <FontAwesome5 name="bars" size={24} color="#73788B" style={{marginLeft:30}}/>
+                    </TouchableOpacity>
+                    <Text style={{marginLeft:140}}>Feed</Text>
                 </View>
-
+                </SafeAreaView>
                 <FlatList 
                     style={styles.feed}
                     data={posts}
@@ -84,6 +93,7 @@ export default class homescreen extends React.Component {
                     showsVerticalScrollIndicator={false}
                     
                 />
+                
             </View>
         );
     }
@@ -98,8 +108,8 @@ const styles = StyleSheet.create({
         paddingTop: 34,
         paddingBottom: 16,
         backgroundColor: "#FFF",
-        alignItems: "center",
-        justifyContent: "center",
+        flexDirection:"row",
+       
         borderBottomWidth: 1,
         borderBottomColor: "#EBECF4",
         shadowColor: "#454D65",

@@ -41,6 +41,12 @@ var messages = [
 ];
 
 export default class messagescreen extends React.Component {
+    state = {
+        name: ""
+    };
+    continue= () => {
+        this.props.navigation.navigate("Chat", {name: this.state.name} );
+    }
     
     renderMessage = message => {
         return (
@@ -54,7 +60,7 @@ export default class messagescreen extends React.Component {
                             <Text style={styles.timestamp}>{moment(message.timestamp).fromNow()}</Text>
                         </View>
                         
-                        <Ionicons name="ios-arrow-round-forward" size={38} color="blue" style={{marginTop: 8}} onPress={() => this.props.navigation.navigate("Chat", message.name )}/>
+                        <Ionicons name="ios-arrow-round-forward" size={38} color="blue" style={{marginTop: 8}} onPress={this.continue}/>
                     </View>
 
                     <Text style={styles.post}>{message.text}</Text>
