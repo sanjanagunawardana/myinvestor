@@ -12,8 +12,10 @@ import postscreen from './screens/postscreen'
 import notificationscreen from './screens/notificationscreen'
 import messagescreen from './screens/messagescreen'
 import profilescreen from './screens/profilescreen'
+import chatscreen from './screens/chatscreen'
 
 import * as firebase from 'firebase'
+
 
 var firebaseConfig = {
   apiKey: "AIzaSyBciehNHOurYdcORwFG-2IBWmxHrhBjdjk",
@@ -107,13 +109,15 @@ const AppContainer = createStackNavigator(
 const AuthStack = createStackNavigator({
   
   Login: loginscreen,
-  Register: registerscreen
+  Register: registerscreen,
+  
 });
 
 export default createAppContainer(
   createSwitchNavigator(
     {
       Loading: loadingscreen,
+      Chat: chatscreen,
       App: AppContainer,
       Auth: AuthStack
     },
