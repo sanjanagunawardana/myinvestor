@@ -30,12 +30,13 @@ export default class chatscreen extends React.Component {
     }
 
     render() {
-        
+        <View >
+        </View>
         const chat = <GiftedChat messages={this.state.messages} onSend={Fire.send} user={this.user} />;
 
         if (Platform.OS === 'android') {
             return(
-                <KeyboardAvoidingView style = {{flex: 1}} behavior="padding" keyboardVerticalOffset={30} enabled>
+                <KeyboardAvoidingView style = {{flex: 1, backgroundColor: "grey"}} behavior="padding" keyboardVerticalOffset={50} enabled>
 
                     {chat}
 
@@ -43,7 +44,7 @@ export default class chatscreen extends React.Component {
             );
         }
 
-        return <SafeAreaView style={{flex: 1}}>{chat}</SafeAreaView>;
+        return <SafeAreaView style={{flex: 1, backgroundColor: "blue"}}>{chat}</SafeAreaView>;
         
     }
 }
