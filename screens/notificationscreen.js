@@ -22,7 +22,6 @@ export default class notificationscreen extends React.Component {
         translateX: new Animated.Value(0),
         translateXTabOne: new Animated.Value(0),
         translateXTabTwo: new Animated.Value(width),
-        translateXTabThree: new Animated.Value(1),
         translateY: -1000
     };
 
@@ -31,7 +30,6 @@ export default class notificationscreen extends React.Component {
             active,
             xTabOne,
             xTabTwo,
-            xTabThree,
             translateX,
             translateXTabOne,
             translateXTabTwo,
@@ -50,40 +48,15 @@ export default class notificationscreen extends React.Component {
                 Animated.spring(translateXTabTwo, {
                     toValue: width,
                     duration: 100
-                }).start(),
-                Animated.spring(translateXTabThree, {
-                    toValue: width,
-                    duration: 100
                 }).start()
             ]);
-        } 
-        else if (active === 1){
+        } else {
             Animated.parallel([
                 Animated.spring(translateXTabOne, {
                     toValue: -width,
                     duration: 100
                 }).start(),
                 Animated.spring(translateXTabTwo, {
-                    toValue: 0,
-                    duration: 100
-                }).start(),
-                Animated.spring(translateXTabThree, {
-                    toValue: -width,
-                    duration: 100
-                }).start()
-            ]);
-        }
-        else {
-            Animated.parallel([
-                Animated.spring(translateXTabOne, {
-                    toValue: -width,
-                    duration: 100
-                }).start(),
-                Animated.spring(translateXTabTwo, {
-                    toValue: -width,
-                    duration: 100
-                }).start(),
-                Animated.spring(translateXTabThree, {
                     toValue: 0,
                     duration: 100
                 }).start()
@@ -169,7 +142,7 @@ export default class notificationscreen extends React.Component {
                                     color: active === 0 ? "#fff" : "#007aff"
                                 }}
                             >
-                                Tab One
+                                Content
                             </Text>
                         </TouchableOpacity>
 
@@ -201,7 +174,7 @@ export default class notificationscreen extends React.Component {
                                     color: active === 1 ? "#fff" : "#007aff"
                                 }}
                             >
-                                Tab Two
+                                Activity
                             </Text>
                         </TouchableOpacity>
 
@@ -233,7 +206,7 @@ export default class notificationscreen extends React.Component {
                                     color: active === 2 ? "#fff" : "#007aff"
                                 }}
                             >
-                                Tab Three
+                                Audience
                             </Text>
                         </TouchableOpacity>
                     </View>
@@ -301,22 +274,20 @@ export default class notificationscreen extends React.Component {
                             <Text style={{fontWeight:"bold", padding: 10}}>Test</Text>
                             <Image 
                               source={require("../assets/stat2.png")}
-                              style ={{marginTop: -1, marginLeft: -1, top: 0, left: 0, width: '100%', height: 650}}
-                             ></Image>
+                              style ={{marginTop: -1, marginLeft: -1, top: 0, left: 0, width: '100%', height: 600}}
+                            ></Image>
+                            <Image 
+                              source={require("../assets/stat3.png")}
+                              style ={{marginTop: -1, marginLeft: -1, top: 0, left: 0, width: '100%', height: 540}}
+                            ></Image>
+
                         </Animated.View>
 
                         <Animated.View
                             style={{
                                 justifyContent: "center",
                                 alignItems: "center",
-                                transform: [
-                                    {
-                                        translateX: translateXTabThree
-                                    },
-                                    {
-                                        translateY: -translateY
-                                    }
-                                ]
+                                
                             }}
                         >
                            
