@@ -5,6 +5,8 @@ import {createBottomTabNavigator} from 'react-navigation-tabs'
 import {createDrawerNavigator} from 'react-navigation-drawer'
 
 import {Ionicons} from '@expo/vector-icons'
+import { FontAwesome5 } from '@expo/vector-icons'
+
 import loadingscreen from './screens/loadingscreen'
 import loginscreen from './screens/loginscreen'
 import registerscreen from './screens/registerscreen'
@@ -70,7 +72,7 @@ const AppContainer = createStackNavigator(
         Notification: {
           screen: notificationscreen,
           navigationOptions: {
-            tabBarIcon: ({ tintColor }) => <Ionicons name="ios-notifications" size={30} color={tintColor}/>
+            tabBarIcon: ({ tintColor }) => <Ionicons name="ios-stats" size={30} color={tintColor}/>
           }
         },
         Profile: {
