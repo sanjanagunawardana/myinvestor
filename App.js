@@ -121,7 +121,8 @@ const AuthStack = createStackNavigator({
   
   Login: loginscreen,
   Register: registerscreen,
-  
+  Reminder: reminderscreen,
+
 });
 
 export default createAppContainer(

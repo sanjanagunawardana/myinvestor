@@ -79,8 +79,8 @@ export default class homescreen extends React.Component {
             <View style={styles.container}>
                 <SafeAreaView>
                 <View style={styles.header}> 
-                    <TouchableOpacity onPress = {this.props.navigation.openDrawer}>
-                    <FontAwesome5 name="bars" size={24} color="#73788B" style={{marginLeft:30}}/>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate("Reminder") }>
+                    <FontAwesome5 name="bars" size={24} color="#73788B" style={{marginLeft:30}}  />
                     </TouchableOpacity>
                     <Text style={{marginLeft:140}}>Feed</Text>
                 </View>
