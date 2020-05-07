@@ -19,7 +19,8 @@ import profilescreen from './screens/profilescreen'
 import chatscreen from './screens/chatscreen'
 import reminderscreen from './screens/reminderscreen'
 import actscreen from './screens/actscreen'
-import favouritescreen from './screens/favouritescreen'
+import favouritescreen from './screens/favouritescreen' 
+import landingpagescreen from './screens/landingpagescreen'
 
 import * as firebase from 'firebase'
 
@@ -125,7 +126,8 @@ const AuthStack = createStackNavigator({
   Reminder: reminderscreen,
   Act: actscreen,
   Favourite: favouritescreen,
-  Chat: chatscreen
+  Chat: chatscreen,
+  Landing: landingpagescreen,
 
 });
 
@@ -133,12 +135,12 @@ export default createAppContainer(
   createSwitchNavigator(
     {
       Loading: loadingscreen,
-      
+      Landing: landingpagescreen,
       App: AppContainer,
       Auth: AuthStack
     },
     {
-      initialRouteName:"Loading"
+      initialRouteName:"Landing"
     }
   )
 );
