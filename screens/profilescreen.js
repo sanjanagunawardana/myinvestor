@@ -29,7 +29,14 @@ export default class profilescreen extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.header}> 
-                    <Text style={styles.headerTitle}>My Profile</Text>
+                <FontAwesome5 name="bars" size={24} color="#73788B" style={{marginLeft:30}} />
+                    <Text style={{marginLeft:160, marginTop:-20}}>My Profile</Text>
+                    <TouchableOpacity>
+                                 <Image 
+                    source={require("../assets/logo.png")}
+                    style ={{ width: 45, height: 45,marginLeft:350, marginTop: -30 }}
+                ></Image>
+                      </TouchableOpacity>
                 </View>
                 <ScrollView>
                 <Image 
@@ -145,8 +152,7 @@ const styles = StyleSheet.create({
         paddingTop: 34,
         paddingBottom: 16,
         backgroundColor: "#FFF",
-        alignItems: "center",
-        justifyContent: "center",
+       
         borderBottomWidth: 1,
         borderBottomColor: "#EBECF4",
         shadowColor: "#454D65",

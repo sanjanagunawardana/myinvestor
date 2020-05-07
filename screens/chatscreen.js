@@ -75,6 +75,5 @@ const styles = StyleSheet.create({
         borderBottomWidth:1,
         borderBottomColor: "#D8D9DB",
         backgroundColor: "white",
-        marginTop: 20
     }
 });

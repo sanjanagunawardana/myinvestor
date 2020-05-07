@@ -15,7 +15,14 @@ export default class reminderscreen extends React.Component {
                     <Text style={styles.headerTitle}>Schedule meetings</Text>
                     <TouchableOpacity style={styles.back} onPress={() => this.props.navigation.navigate("Home")}>
                     <Ionicons name="md-arrow-back" size={30} color="grey"></Ionicons>
+                    
                 </TouchableOpacity>
+                <TouchableOpacity>
+                                 <Image 
+                    source={require("../assets/logo.png")}
+                    style ={{ width: 45, height: 45,marginLeft:350, marginTop: -30 }}
+                ></Image>
+                      </TouchableOpacity>
                 </View>
     <ScrollView>
                 <Calendar

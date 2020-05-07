@@ -1,46 +1,71 @@
 import React from "react";
-import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
+import {View, Text, StyleSheet, Image, FlatList, TouchableOpacity, Button} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import moment from 'moment'
 import { StackNavigator } from 'react-navigation';
+import * as firebase from 'firebase'
 
 
 var messages = [
     {
         id: "1",
-        name: "Joe bros",
-        text: "oh baby oh",
+        name: "James fernando",
+        text: "meeting set",
         timestamp: 1588247356085,
-        avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage1.jpg")
+        avatar: require("../assets/tempAvatar2.jpg"),
+        image: require("../assets/tempImage1.png")
     },
     {
         id: "2",
-        name: "Jkapo bros",
-        text: "ohhhhh",
+        name: "John holdings",
+        text: "Keep be noted",
         timestamp: 1545654255964,
-        avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage2.jpg")
+        avatar: require("../assets/tempAvatar3.jpg"),
+        image: require("../assets/tempImage2.png")
     },
     {
         id: "3",
-        name: "lamele",
-        text: "oh baby oh",
+        name: "Anne lee",
+        text: "Interested",
         timestamp: 1545654258965,
-        avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage1.jpg")
+        avatar: require("../assets/tempAvatar4.jpg"),
+        image: require("../assets/tempImage1.png")
     },
     {
         id: "4",
-        name: "Jkapo bros",
-        text: "ohhhhh",
+        name: "Bawantha gunawardana",
+        text: "Well done",
         timestamp: 1545654255964,
-        avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage2.jpg")
+        avatar: require("../assets/tempAvatar5.jpg"),
+        image: require("../assets/tempImage2.png")
     }
 ];
 
 export default class messagescreen extends React.Component {
+    constructor(){
+        super();
+        this.state ={
+            status:false
+        }
+    }
+
+    signOutUser = () => {
+        firebase.auth().signOut();
+
+    };
+     
+    ShowHideTextComponentView = () =>{
+      if(this.state.status == true)
+      {
+        this.setState({status: false})
+      }
+      else
+      {
+        this.setState({status: true})
+      }
+    };
+
     state = {
         name: ""
     };
@@ -78,7 +103,114 @@ export default class messagescreen extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.header}> 
-                    <Text style={styles.headerTitle}>Messages</Text>
+                <>
+              <View style={styles.containerBar}>
+
+              {this.state.status ?  
+                      <TouchableOpacity>
+                                 <Image 
+                    source={require("../assets/tempAvatar.png")}
+                    style ={{ width: 80, height: 80,marginLeft:10 }}
+                ></Image>
+                      </TouchableOpacity>
+                  : null }
+
+                  {this.state.status ?  
+                      <Text style={{color:"#FFF", marginTop: 10 ,marginLeft:10}}>melisa Perara</Text>
+                  : null }
+
+                    {this.state.status ?  
+                      <Text style={{color:"#FFF", marginTop: 10 ,marginLeft:10}}>melisap@gmail.com</Text>
+                  : null }
+
+
+                  {this.state.status ?  
+                      <Button
+                      title=""
+                      //spaces
+                    />
+                  : null }
+                  
+                  
+                  {this.state.status ?  
+                      <Button
+                      title="                 Schedule meetings                 "
+                      onPress={() => this.props.navigation.navigate("Reminder")}
+                    />
+                  : null }
+                  {this.state.status ?  
+                      <Button
+                      title="Search ideas"
+                      onPress={() => this.props.navigation.navigate("Act")}
+                    />
+                  : null }
+
+                    {this.state.status ?  
+                      <Button
+                      title="Upload ideas"
+                      //onPress={() => this.props.navigation.navigate("Upload")}
+                    />
+                  : null }
+                  
+                  {this.state.status ?  
+                      <Button
+                      title="Favourites"
+                      onPress={() => this.props.navigation.navigate("Favourite")}
+                    />
+                  : null }
+
+                    {this.state.status ?  
+                      <Button
+                      title="payment"
+                      //onPress={() => this.props.navigation.navigate("payment")}
+                    />
+                  : null }
+
+                  {this.state.status ?  
+                      <Button
+                      title="about us"
+                      //onPress={() => this.props.navigation.navigate("About us")}
+                    />
+                  : null }
+
+                  {this.state.status ?  
+                      <Button
+                      title="contact us"
+                      //onPress={() => this.props.navigation.navigate("Contact us")}
+                    />
+                  : null }
+
+                  {this.state.status ?  
+                      <Button
+                      title="Mange profile"
+                      //onPress={() => this.props.navigation.navigate("About us")}
+                    />
+                  : null }
+
+                  {this.state.status ?  
+                      <Button
+                      title="logout"
+                      style={{backgroundColor:"red"}}
+                      onPress={this.signOutUser}
+                    />
+                  : null }
+                  {this.state.status ?  
+                      <Button
+                      title=""
+                      //spaces
+                    />
+                  : null }
+                  
+              </View>
+              <FontAwesome5 name="bars" size={24} color="#73788B" style={{marginLeft:30}} onPress={this.ShowHideTextComponentView}/>
+          </>
+                    <Text style={{marginLeft:160, marginTop:-20}}>Messages</Text>
+                    <TouchableOpacity>
+                                 <Image 
+                    source={require("../assets/logo.png")}
+                    style ={{ width: 45, height: 45,marginLeft:350, marginTop: -30 }}
+                ></Image>
+                      </TouchableOpacity>
                 </View>
 
                 <FlatList 
@@ -100,11 +232,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#EFECF4"
     },
     header: {
-        paddingTop: 34,
+        paddingTop: 20,
         paddingBottom: 16,
         backgroundColor: "#FFF",
-        alignItems: "center",
-        justifyContent: "center",
         borderBottomWidth: 1,
         borderBottomColor: "#EBECF4",
         shadowColor: "#454D65",
@@ -112,6 +242,11 @@ const styles = StyleSheet.create({
         shadowRadius: 15,
         shadowOpacity: 0.2,
         zIndex: 10
+    },
+    
+    containerBar: {
+        backgroundColor: 'grey',
+        maxWidth: 300,
     },
     feed: {
         fontSize: 30,
@@ -130,7 +265,7 @@ const styles = StyleSheet.create({
     avatar: {
         width: 60,
         height: 60,
-        borderRadius: 18,
+        borderRadius: 40,
         marginRight: 16,
         marginTop: 9
     },

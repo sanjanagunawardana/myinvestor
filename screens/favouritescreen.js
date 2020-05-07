@@ -10,35 +10,43 @@ import * as firebase from 'firebase'
 var posts = [
     {
         id: "1",
-        name: "Joe bros",
-        text: "oh baby oh",
+        name: "James fernando",
+        text: "cutting edge developments",
         timestamp: 1545654258965,
-        avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage1.jpg")
+        avatar: require("../assets/tempAvatar2.jpg"),
+        image: require("../assets/tempImage1.png")
     },
     {
         id: "2",
-        name: "Jkapo bros",
-        text: "ohhhhh",
+        name: "Thisura dogon",
+        text: "Change of the century",
         timestamp: 1545654255964,
-        avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage2.jpg")
+        avatar: require("../assets/tempAvatar5.jpg"),
+        image: require("../assets/tempImage2.png")
     },
     {
         id: "3",
         name: "lamele",
-        text: "oh baby oh",
+        text: "cutting edge developments",
         timestamp: 1545654258965,
-        avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage1.jpg")
+        avatar: require("../assets/tempAvatar3.jpg"),
+        image: require("../assets/tempImage3.png")
     },
     {
         id: "4",
-        name: "Jkapo bros",
+        name: "kapo onnel",
+        text: "Change of the century",
+        timestamp: 1545654255964,
+        avatar: require("../assets/tempAvatar4.jpg"),
+        image: require("../assets/tempImage4.png")
+    },
+    {
+        id: "5",
+        name: "kole brother",
         text: "ohhhhh",
         timestamp: 1545654255964,
-        avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage2.jpg")
+        avatar: require("../assets/tempAvatar2.jpg"),
+        image: require("../assets/tempImage5.png")
     }
 ];
 
@@ -211,6 +219,12 @@ export default class favouritescreen extends React.Component {
           
                     
                     <Text style={{marginLeft:130}}>Favourites</Text>
+                    <TouchableOpacity>
+                                 <Image 
+                    source={require("../assets/logo.png")}
+                    style ={{ width: 45, height: 45,marginLeft:120, marginTop: -5 }}
+                ></Image>
+                      </TouchableOpacity>
                 </View>
                 </SafeAreaView>
                 <FlatList 

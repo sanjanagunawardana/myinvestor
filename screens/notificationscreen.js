@@ -9,6 +9,7 @@ import {
     Dimensions,
     StyleSheet
 } from "react-native";
+import { FontAwesome5 } from '@expo/vector-icons';
 
 const { width } = Dimensions.get("window");
 
@@ -80,7 +81,14 @@ export default class notificationscreen extends React.Component {
 
             <View style={{ flex: 1 }}>
                 <View style={styles.header}> 
-                    <Text style={styles.headerTitle}>Dashboard</Text>
+                <FontAwesome5 name="bars" size={24} color="#73788B" style={{marginLeft:30}} />
+                    <Text style={{marginLeft:160, marginTop: -20}}>Dashboard</Text>
+                    <TouchableOpacity>
+                                 <Image 
+                    source={require("../assets/logo.png")}
+                    style ={{ width: 45, height: 45,marginLeft:350, marginTop: -30 }}
+                ></Image>
+                      </TouchableOpacity>
                 </View>
                 <View
                     style={{
@@ -319,11 +327,10 @@ const styles = StyleSheet.create({
         flex: 1
     },
     header: {
-        paddingTop: 34,
+        paddingTop: 20,
         paddingBottom: 16,
         backgroundColor: "#FFF",
-        alignItems: "center",
-        justifyContent: "center",
+        
         borderBottomWidth: 1,
         borderBottomColor: "#EBECF4",
         shadowColor: "#454D65",
@@ -331,5 +338,10 @@ const styles = StyleSheet.create({
         shadowRadius: 15,
         shadowOpacity: 0.2,
         zIndex: 10
-    }
+    },
+    containerBar: {
+        backgroundColor: 'grey',
+        maxWidth: 300,
+        paddingTop: 20
+    },
 });

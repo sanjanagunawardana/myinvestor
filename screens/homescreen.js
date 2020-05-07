@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity, Button} from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity, Button, _Image} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import moment from 'moment'
@@ -10,35 +10,43 @@ import * as firebase from 'firebase'
 var posts = [
     {
         id: "1",
-        name: "Joe bros",
-        text: "oh baby oh",
-        timestamp: 1545654258965,
+        name: "Melisa perera",
+        text: "Meet the lasted technology put all into one. the cutting edge devices that have been made in the 2020 era",
+        timestamp: 1588247356085,
         avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage1.jpg")
+        image: require("../assets/tempImage1.png")
     },
     {
         id: "2",
-        name: "Jkapo bros",
-        text: "ohhhhh",
-        timestamp: 1545654255964,
-        avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage2.jpg")
+        name: "James fernando",
+        text: "Meet the lasted technology put all into one. the cutting edge devices that have been made in the 2020 era",
+        timestamp: 1578247380120,
+        avatar: require("../assets/tempAvatar2.jpg"),
+        image: require("../assets/tempImage2.png")
     },
     {
         id: "3",
-        name: "lamele",
-        text: "oh baby oh",
-        timestamp: 1545654258965,
-        avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage1.jpg")
+        name: "John holding",
+        text: "lasted technology",
+        timestamp: 1568247356085,
+        avatar: require("../assets/tempAvatar3.jpg"),
+        image: require("../assets/tempImage3.png")
     },
     {
         id: "4",
-        name: "Jkapo bros",
-        text: "ohhhhh",
+        name: "Bawantha gunawardana",
+        text: "Meet the lasted technology put all into one. the cutting edge devices that have been made in the 2020 era",
         timestamp: 1545654255964,
-        avatar: require("../assets/tempAvatar.png"),
-        image: require("../assets/tempImage2.jpg")
+        avatar: require("../assets/tempAvatar5.jpg"),
+        image: require("../assets/tempImage4.png")
+    },
+    {
+        id: "5",
+        name: "anne lee",
+        text: "Meet the lasted technology put all into one. the cutting edge devices that have been made in the 2020 era",
+        timestamp: 1545654255964,
+        avatar: require("../assets/tempAvatar4.jpg"),
+        image: require("../assets/tempImage5.png")
     }
 ];
 
@@ -202,11 +210,17 @@ export default class homescreen extends React.Component {
                   : null }
                   
               </View>
-              <FontAwesome5 name="bars" size={24} color="#73788B" style={{marginLeft:30}} onPress={this.ShowHideTextComponentView}/>
+              <FontAwesome5 name="bars" size={24} color="#73788B" style={{marginLeft:30, marginTop: 10}} onPress={this.ShowHideTextComponentView}/>
           </>
           
                     
-                    <Text style={{marginLeft:140}}>Feed</Text>
+                    <Text style={{marginLeft:140, marginTop: 15}}>Feed</Text>
+                    <TouchableOpacity>
+                                 <Image 
+                    source={require("../assets/logo.png")}
+                    style ={{ width: 45, height: 45,marginLeft:130 }}
+                ></Image>
+                      </TouchableOpacity>
                 </View>
                 </SafeAreaView>
                 <FlatList 
@@ -217,6 +231,7 @@ export default class homescreen extends React.Component {
                     showsVerticalScrollIndicator={false}
                     
                 />
+               
                 
             </View>
         );
@@ -234,7 +249,7 @@ const styles = StyleSheet.create({
         paddingTop: 20
     },
     header: {
-        paddingTop: 34,
+        paddingTop: 20,
         paddingBottom: 16,
         backgroundColor: "#FFF",
         flexDirection:"row",

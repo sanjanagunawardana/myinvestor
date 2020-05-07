@@ -141,6 +141,12 @@ export default class actscreen extends React.Component {
 
         
         <Text style={{marginLeft:105}}>Select category</Text>
+        <TouchableOpacity>
+                                 <Image 
+                    source={require("../assets/logo.png")}
+                    style ={{ width: 45, height: 45,marginLeft:100, marginTop: -10 }}
+                ></Image>
+                      </TouchableOpacity>
     </View>
                 
                 <TouchableOpacity onPress={() => this.props.navigation.navigate("Home")}>
