@@ -42,7 +42,11 @@ var posts = [
     }
 ];
 
-export default class homescreen extends React.Component {
+export default class favouritescreen extends React.Component {
+    static navigationOptions = {
+        headerShown: false
+    };
+
     constructor(){
         super();
         this.state ={
@@ -76,7 +80,7 @@ export default class homescreen extends React.Component {
                             <Text style={styles.timestamp}>{moment(post.timestamp).fromNow()}</Text>
                         </View>
 
-                        <Ionicons name="ios-more" size={24} color="#737888"/>
+                        <Ionicons name="ios-heart" size={24} color="red" style={{marginRight:3}}/>
                     </View>
 
                     <Text style={styles.post}>{post.text}</Text>
@@ -206,7 +210,7 @@ export default class homescreen extends React.Component {
           </>
           
                     
-                    <Text style={{marginLeft:140}}>Feed</Text>
+                    <Text style={{marginLeft:130}}>Favourites</Text>
                 </View>
                 </SafeAreaView>
                 <FlatList 

@@ -19,6 +19,7 @@ import profilescreen from './screens/profilescreen'
 import chatscreen from './screens/chatscreen'
 import reminderscreen from './screens/reminderscreen'
 import actscreen from './screens/actscreen'
+import favouritescreen from './screens/favouritescreen'
 
 import * as firebase from 'firebase'
 
@@ -122,6 +123,9 @@ const AuthStack = createStackNavigator({
   Login: loginscreen,
   Register: registerscreen,
   Reminder: reminderscreen,
+  Act: actscreen,
+  Favourite: favouritescreen,
+  Chat: chatscreen
 
 });
 
@@ -129,7 +133,7 @@ export default createAppContainer(
   createSwitchNavigator(
     {
       Loading: loadingscreen,
-      Chat: chatscreen,
+      
       App: AppContainer,
       Auth: AuthStack
     },

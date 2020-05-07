@@ -2,6 +2,7 @@ import React from "react"
 import {View, Text, StyleSheet,TouchableOpacity, Image, ScrollView} from 'react-native'
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 import {Ionicons} from '@expo/vector-icons'
+import * as firebase from 'firebase'
 
 export default class reminderscreen extends React.Component {
     static navigationOptions = {

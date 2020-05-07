@@ -4,7 +4,11 @@ import {GiftedChat} from 'react-native-gifted-chat'
 import Fire from '../Fire';
 import {Ionicons} from "@expo/vector-icons";
 
+
 export default class chatscreen extends React.Component {
+    static navigationOptions = {
+        headerShown: false
+    };
     
     state = {
         messages: []
