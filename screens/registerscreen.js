@@ -28,11 +28,7 @@ export default class registerscreen extends React.Component {
         return (
             <View style={styles.container}>
                 <StatusBar barStyle="light-content"> </StatusBar>
-                <Image
-                   // source={require("../assets/authHeader.png")}
-                 // style={{marginTop: -1, marginLeft: -1, position: "absolute", top: 0, left: 0, width: '100%', height: 270}}
                 
-                ></Image>
 
                 <TouchableOpacity style={styles.back} onPress={() => this.props.navigation.goBack()}>
                     <Ionicons name="ios-arrow-round-back" size={32} color="#FFF"></Ionicons>

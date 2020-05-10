@@ -42,7 +42,7 @@ export default class chatscreen extends React.Component {
         if (Platform.OS === 'android') {
             return(
                 
-                <KeyboardAvoidingView style = {{flex: 1, backgroundColor: "grey"}} behavior="padding" keyboardVerticalOffset={50} enabled>
+                <KeyboardAvoidingView style = {{flex: 1, backgroundColor: "#B8BBC4"}} behavior="padding" keyboardVerticalOffset={50} enabled>
                     <View style={styles.header}>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate("Message")}> 
                           <Ionicons name="md-arrow-back" size={24} color="black"></Ionicons>
